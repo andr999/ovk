@@ -1,0 +1,632 @@
+@import bourbon
+@import vars.sass
+@import "libs"
+
+*::-webkit-input-placeholder
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	color: #222
+	opacity: 1
+
+*::-moz-placeholder
+	color: #222
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #222
+	opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #222
+body input:required:valid,
+body textarea:required:valid
+	color: #222
+
+//Custom Styles Here
+h1 
+	font-family: "OpenSansBold", sans-serif
+.s-gray
+	background-color: #f8f8f8
+.gallery-tizer-wrap 
+	min-height: 360px
+	border: 7px solid $accent
+	background-size: cover
+	position: relative
+	display: block
+	text-align: center
+	&:hover 
+		text-decoration: none
+		&::before 
+			opacity: .8
+	&::before 
+		content: ''
+		width: 100%
+		height: 100%
+		position: absolute
+		top: 0
+		left: 0
+		background-color: #414e5b
+		opacity: .6
+		+mt(.5s)
+	.table 
+		z-index: 2
+		position: relative
+		height: 360px
+		span 
+			font-size: em(26px)
+			color: #fff
+			font-family: "OpenSansLight", sans-serif
+			i 
+				color: #b5bdc6
+				font-size: 58px
+	.tizer-triangle 
+		position: absolute
+		top: 0
+		right: 0
+		font-size: 19px
+		@include triangle(65px, $accent, "up-right")
+		i.fa
+	    	position: absolute
+	    	top: -60px
+	    	right: 6px
+	    	color: #fff
+.s-profile 
+	h2 
+		text-align: left
+	.fa-plus 
+		color: #b1b8be
+	.button 
+		margin-top: 36px
+		width: 100%
+	p 
+		color: #777
+.home-gallery-wrap > a,
+.sertificate-wrap > a
+	display: none
+	&:first-child 
+		display: block
+		
+//Magnific-Popup Customize
+.mfp-ready .mfp-figure
+	opacity: 0
+.mfp-zoom-in
+	.mfp-figure, .mfp-iframe-holder .mfp-iframe-scaler
+		opacity: 0
+		transition: all 0.3s ease-out
+		transform: scale(0.95)
+	&.mfp-bg, .mfp-preloader
+		opacity: 0
+		transition: all 0.3s ease-out
+	&.mfp-image-loaded .mfp-figure
+		opacity: 1
+		transform: scale(1)
+	&.mfp-ready
+		.mfp-iframe-holder .mfp-iframe-scaler
+			opacity: 1
+			transform: scale(1)
+		&.mfp-bg, .mfp-preloader
+			opacity: 0.8
+	&.mfp-removing
+		.mfp-figure, .mfp-iframe-holder .mfp-iframe-scaler
+			transform: scale(0.95)
+			opacity: 0
+		&.mfp-bg, .mfp-preloader
+			opacity: 0
+
+.mfp-iframe-scaler
+	overflow: visible
+.mfp-zoom-out-cur
+	cursor: auto
+	.mfp-image-holder .mfp-close
+		cursor: pointer
+.mfp-preloader
+	width: 30px!important
+	height: 30px!important
+	background-color: $accent
+	opacity: 1
+	margin: 0 auto
+	animation: rotateplane 1.2s infinite ease-in-out
+@-webkit-keyframes rotateplane
+	0%
+		-webkit-transform: perspective(120px)
+	50%
+		-webkit-transform: perspective(120px) rotateY(180deg)
+	100%
+		-webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg)
+@keyframes rotateplane
+	0%
+		transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+	50%
+		transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+	100%
+		transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg)
+.item-vertical
+	svg, img
+		width: 74px
+		height: auto
+	path 
+		fill: #555
+		+mt(.5s)
+	&:hover 
+		.button 
+			background-color: $accent
+			box-shadow: 0px 4px 0px darken($accent, 3%)
+			color: #fff
+			&:active, &:focus 
+				background-color: darken($accent, 6%)
+				box-shadow: 0px 4px 0px darken($accent, 6%)
+				color: $accent
+		path
+			fill: $accent !important
+		h3
+			&::before 
+				background-color: $accent
+				width: 40%
+
+	margin-top: 80px
+	text-align: center
+	h3 
+		margin-top: 30px
+		position: relative
+		padding-bottom: 15px
+		&::before 
+			content: ''
+			position: absolute
+			bottom: 0
+			left: 40%
+			height: 1px
+			width: 20%
+			background-color: #d0d0d0
+			margin-left: -10%
+			+mt(.5s)
+	p 
+		font-size: em(14px)
+		color: #666
+		padding: 0 15px
+		margin-top: 25px
+		margin-bottom: 35px
+.s-works 
+	padding-bottom: 0
+	border-bottom: 20px solid #35414e
+	
+	h2 
+		margin-bottom: 64px
+.portfolio 
+	.col-md-3 
+		padding: 0
+	.portfolio-item 
+		position: relative
+		display: block
+		color: #414e5b
+		overflow: hidden
+		img 
+			+mt(.5s)
+		&:hover 
+			.portfolio-item-content 
+				opacity: 1
+				transform: scale(.95)
+			img 
+				transform: scale(1.1)
+		&-content 
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			background-color: rgba(255,255,255, .85)
+			text-align: center
+			padding-top: 25%
+			opacity: 0
+			+mt(.5s)
+			transform: scale(1.1)
+			i 
+				color: rgba(65,78,91, .6)
+				font-size: 24px
+.portfolio-popup 
+	position: relative
+	background-color: #fff
+	display: block
+	max-width: 1000px
+	margin: 5% auto
+	text-align: center
+	padding-top: 15px
+	+mt(.25s)
+	.responsive-img 
+		display: block
+		margin: auto
+	.row, .col-sm-12 
+		display: block
+	h2 
+		line-height: em(22px)
+		width: 90%
+		margin: 30px auto
+	&-text 
+		text-align: left
+		display: block
+		width: 80%
+		margin: 20px auto
+		.td 
+			vertical-align: top
+			padding: 5px
+			color: #666
+			i 
+				margin-right: 5px
+				font-size: 22px
+			&.wsnw
+				color: $accent
+			
+.wsnw 
+	white-space: no-wrap
+.form-callback
+	+mt(.3s)
+	max-width: 320px
+	margin: auto
+	box-shadow: rgba(0,0,0, .2) 0 0 10px
+	position: relative
+	overflow: hidden
+	h4
+		color: #fff
+	button.mfp-close
+		color: #fff
+		opacity: .5
+		+mt(.5s)
+		&:hover
+			opacity: .7
+//.my-mfp-zoom-in Animation
+.my-mfp-zoom-in
+	.portfolio-popup,
+	.form-callback
+		opacity: 0
+		transform: scale(0.95)
+	&.mfp-ready .portfolio-popup,
+	&.mfp-ready .form-callback
+		opacity: 1
+		transform: scale(1)
+	&.mfp-removing .portfolio-popup,
+	&.mfp-removing .form-callback
+		transform: scale(0.95)
+		opacity: 0
+	&.mfp-bg
+		opacity: 0
+		transition: opacity 0.3s ease-out
+	&.mfp-ready.mfp-bg
+		opacity: 0.8
+	&.mfp-removing.mfp-bg
+		opacity: 0
+
+*
+	transition: filter .25s ease
+.mfp-wrap ~ *
+	filter: blur(5px)
+
+.carousel-wrap
+	box-shadow: #d7d7d7 0 0 0 5px inset 
+	text-align: center
+	+mt(.25s)
+	background-color: #f8f8f8
+	padding: 0 0 30px
+	margin-bottom: 25px
+	&:hover
+		box-shadow: $accent 0 0 0 5px inset 
+		background-color: #ebebeb
+		.button 
+			background-color: $accent
+			box-shadow: 0px 4px 0px darken($accent, 3%)
+			color: #fff
+			&:active, &:focus 
+				background-color: darken($accent, 6%)
+				box-shadow: 0px 4px 0px darken($accent, 6%)
+				color: $accent 
+		.car-img-wrap
+			svg
+				path
+					fill: $accent !important
+					opacity: 1
+	.car-img-wrap
+		position: relative
+		svg
+			position: absolute
+			max-height: 50px
+			left: 20px
+			top: 0 
+			path
+				opacity: .8
+				fill: #fff !important
+	h3 
+		font-size: em(17px)
+		font-family: "OpenSansBold", sans-serif
+	p 
+		font-size: em(13px)
+		color: #444
+	.button
+		margin-top: 20px
+.carousel-text 
+	padding: 0 20px
+.s-equipment
+	h2
+		margin-bottom: 70px
+.carousel-eq
+  .carousel-wrap
+    margin: 15px
+  .owl-dots
+    text-align: center
+    margin-top: 25px
+    .owl-dot
+      width: 14px
+      height: 14px
+      background-color: #d7d7d7
+      border-radius: 10em
+      display: inline-block
+      margin-left: 5px
+      &.active
+        background-color: $accent
+.tizer-text
+	font-family: "OpenSansLight", sans-serif
+	font-size: em(19px)
+	margin-bottom: 50px
+.item-vertical-2
+	margin-top: 55px
+	&:hover
+		.rounded-img-wrap
+			transform: scale(1.15)
+			border-color: $accent
+		.iv-phone
+			color: $accent
+	text-align: center
+	h3
+		font-family: "OpenSansBold", sans-serif
+		font-size: em(17px)
+		color: #444
+		margin-top: 40px
+		margin-bottom: 10px
+	p
+		font-size: em(13px)
+		color: #666
+		letter-spacing: 2px
+		margin-top: 0
+.iv-phone
+	margin-top: 22px
+	color: #999999
+	font-family: "Exo2Bold", sans-serif
+	font-size: em(17px)
+	+mt(.5s)
+	i
+		font-size: em(19px)
+		margin-right: 3px
+
+.rounded-img-wrap
+	border-radius: 10em
+	border: #d7d7d7 6px solid
+	overflow: hidden
+	width: 125px
+	height: 125px
+	text-align: center
+	margin: auto
+	+mt(.5s)
+	img
+		max-width: 100%
+.s-brands
+	padding: 60px 0
+	h2
+		margin-bottom: 60px
+.carousel-brands
+	padding: 0 80px
+	position: relative
+	.owl-controls
+		left: 0
+		top: 0
+		width: 100%
+		.owl-nav
+			position: absolute
+			width: 100%
+			top: 0
+			> div
+				position: absolute
+				left: 0
+				font-size: 34px
+				color: #9c9c9c
+				line-height: 38px
+				+mt(.25s)
+				&:hover
+					color: $accent
+				&.owl-next
+					right: 70px
+					left: auto
+				&.owl-prev
+					left: -70px
+	.carousel-brand
+		transition: all .5s ease
+		opacity: .5
+		&:hover
+			opacity: .9
+		a
+			display: block
+			img
+				max-width: 70%
+				max-height: 40px
+.s-testimonials
+	h2
+		margin-bottom: 60px
+.testimonials-item
+	&:hover
+		.rounded-img-wrap
+			border-color: $accent
+		.testimonials-head
+			h4
+				color: $accent
+		.testimonials-desc
+			border-bottom: $accent 5px solid
+	text-align: center
+	font-size: em(14px)
+	margin-top: 20px
+	.rounded-img-wrap
+		width: 98px
+		height: 98px
+		border: #fff 5px solid
+		box-shadow: rgba(0,0,0, .15) 0 0 5px
+	.testimonials-head
+		h4
+			font-size: em(16px)
+			font-family: "OpenSansBold", sans-serif
+			margin-top: 35px
+			margin-bottom: 12px
+			+mt(.25s)
+			+ p
+				font-size: em(15px)
+				letter-spacing: 2px
+				margin-top: 0
+				color: #666
+	.testimonials-desc
+		background-color: $blue
+		color: #fff
+		padding: 30px
+		margin-top: 50px
+		border-radius: 2px
+		position: relative
+		border-bottom: $blue 0px solid
+		+mt(.25s)
+		&::before
+			content: ''
+			@include triangle(32px, $blue,up)
+			position: absolute
+			top: -16px
+			transform: translateX(-16px)
+
+		h4
+			text-transform: none
+			font-size: em(24px)
+			margin-top: 0
+			margin-bottom: 16px
+		p
+			color: #b5babf
+.s-contacts-wrapper
+	margin-top: 40px
+	.map
+		margin-top: 40px
+		margin-bottom: 20px
+.contacts-text
+	font-size: em(18px)
+	font-family: "OpenSansLight", sans-serif
+	p
+		margin-top: 0
+		margin-bottom: 8px
+	.fa
+		color: $accent
+		margin-right: 5px
+		font-size: 24px
+		width: 15px
+		text-align: center
+form
+	label
+		margin-bottom: 14px
+		display: block
+		span
+			font-size: 14px
+			color: #fff
+			opacity: .3
+			display: block
+			margin-bottom: 3px
+		input, select, .selectize-input, .selectize-input.full
+			background-color: rgba(255,255,255,.6)
+			border-radius: 2px
+			border: none
+			padding: 9px 15px 7px
+			display: block
+			width: 100%
+			color: #222
+			font-size: em(15px)
+			border-bottom: transparent 4px solid
+			transition: all .5s ease
+			&:focus
+				background-color: #fff
+				border-bottom: lighten($blue, 9%) 4px solid
+		.selectize-input, .selectize-input.full
+			padding: 11px 15px
+		.selectize-dropdown
+			border: none
+			.option
+				padding: 8px 15px
+			.active
+				background-color: $blue
+				color: #fff
+
+
+.selectize-control.single .selectize-input
+	&::after
+		position: absolute
+		top: 30%
+		right: 24px
+		margin-top: -3px
+		content: '\f107'
+		border: none
+		font-family: "fontawesome"
+		font-size: 20px
+	&.dropdown-active::after
+		margin-top: -7px
+.main-foot
+	background-color: darken($blue, 10%)
+	.mnu-line
+		padding: 40px 0
+	.main-mnu
+		> ul
+			> li
+				&.active, &:hover, &:focus
+					a
+						color: #d7dde2
+	.phone
+		.phone-wrap
+			color: #acb6be
+.success
+	color: #fff
+	background-color: $blue
+	position: absolute
+	z-index: 1
+	left: 0
+	top: 0
+	width: 100%
+	height: 100%
+	display: flex
+	top: -100%
+	opacity: 0
+	+mt(.5s)
+	p
+		display: flex
+		margin: auto
+	&.active
+		top: 0
+		opacity: 1
+.top
+	position: fixed
+	bottom: 38px
+	right: -120px
+	width: 50px
+	height: 50px
+	background-color: #fff
+	border-radius: 10em
+	cursor: pointer
+	text-align: center
+	opacity: .4
+	color: $blue
+	+mt(.5s)
+	z-index: 5
+	.fa
+		font-size: 32px
+		margin-top: 6px
+	&:hover
+		opacity: 1
+		background-color: $accent
+	&.active
+		right: 10px
+
+
+
+
+
+//ALWAYS END
+@import media
+
+//Load Libs SASS
+@import app/libs/animate/animate.sass
